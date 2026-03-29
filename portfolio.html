@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ana Livia Souza de Freitas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-950 text-white font-sans">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm border-b border-gray-800 z-50">
+      <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+        <span class="text-indigo-400 font-bold text-lg">Ana Livia</span>
+        <div class="flex gap-6 text-sm text-gray-400">
+          <a href="#sobre" class="hover:text-white transition">Sobre</a>
+          <a href="#habilidades" class="hover:text-white transition">Habilidades</a>
+          <a href="#projetos" class="hover:text-white transition">Projetos</a>
+          <a href="#contato" class="hover:text-white transition">Contato</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="min-h-screen flex items-center justify-center px-6 pt-20">
+      <div class="text-center max-w-2xl">
+        <div class="w-24 h-24 rounded-full bg-indigo-500 flex items-center justify-center text-3xl font-bold mx-auto mb-6">
+          AL
+        </div>
+        <h1 class="text-4xl font-bold mb-2">Ana Livia Souza de Freitas</h1>
+        <p class="text-indigo-400 text-lg mb-4">Desenvolvedora Frontend</p>
+        <p class="text-gray-400 mb-8">
+          Apaixonada por criar interfaces bonitas e funcionais com HTML, CSS e JavaScript.
+        </p>
+        <div class="flex gap-4 justify-center">
+          <a href="#projetos" class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-2 rounded-full text-sm font-medium transition">
+            Ver projetos
+          </a>
+          <a href="#contato" class="border border-gray-600 hover:border-indigo-400 text-gray-300 hover:text-white px-6 py-2 rounded-full text-sm font-medium transition">
+            Contato
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="py-20 px-6 border-t border-gray-800">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-2xl font-bold mb-6 text-indigo-400">Sobre mim</h2>
+        <p class="text-gray-300 leading-relaxed">
+          Olá! Sou Ana Livia, desenvolvedora frontend em formação. Tenho interesse em construir
+          experiências web acessíveis, responsivas e visualmente agradáveis. Estou sempre
+          aprendendo novas tecnologias e buscando evoluir como profissional.
+        </p>
+      </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="habilidades" class="py-20 px-6 border-t border-gray-800">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-2xl font-bold mb-8 text-indigo-400">Habilidades</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          <div class="bg-gray-800 rounded-xl px-4 py-3 text-center text-sm text-gray-300 hover:bg-indigo-500/20 hover:text-white transition">HTML</div>
+          <div class="bg-gray-800 rounded-xl px-4 py-3 text-center text-sm text-gray-300 hover:bg-indigo-500/20 hover:text-white transition">CSS</div>
+          <div class="bg-gray-800 rounded-xl px-4 py-3 text-center text-sm text-gray-300 hover:bg-indigo-500/20 hover:text-white transition">JavaScript</div>
+          <div class="bg-gray-800 rounded-xl px-4 py-3 text-center text-sm text-gray-300 hover:bg-indigo-500/20 hover:text-white transition">Tailwind CSS</div>
+          <div class="bg-gray-800 rounded-xl px-4 py-3 text-center text-sm text-gray-300 hover:bg-indigo-500/20 hover:text-white transition">Git & GitHub</div>
+          <div class="bg-gray-800 rounded-xl px-4 py-3 text-center text-sm text-gray-300 hover:bg-indigo-500/20 hover:text-white transition">Responsividade</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projetos -->
+    <section id="projetos" class="py-20 px-6 border-t border-gray-800">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-2xl font-bold mb-8 text-indigo-400">Projetos</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition">
+            <h3 class="font-semibold text-white mb-2">Frontend Playground</h3>
+            <p class="text-gray-400 text-sm mb-4">Repositório pessoal para praticar HTML e CSS.</p>
+            <a href="https://github.com/analiviasouza-hash/frontend-playground" target="_blank" class="text-indigo-400 hover:text-indigo-300 text-sm transition">
+              Ver no GitHub →
+            </a>
+          </div>
+          <div class="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition border border-dashed border-gray-600">
+            <h3 class="font-semibold text-gray-500 mb-2">Em breve...</h3>
+            <p class="text-gray-600 text-sm">Novos projetos chegando.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-20 px-6 border-t border-gray-800">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-4 text-indigo-400">Contato</h2>
+        <p class="text-gray-400 mb-8">Quer conversar ou colaborar? Me chame!</p>
+        <div class="flex gap-4 justify-center flex-wrap">
+          <a href="mailto:analiviiasoouza@gmail.com" class="bg-gray-800 hover:bg-indigo-500/20 border border-gray-700 hover:border-indigo-500 text-gray-300 hover:text-white px-6 py-3 rounded-xl text-sm transition">
+            analiviiasoouza@gmail.com
+          </a>
+          <a href="https://github.com/analiviasouza-hash" target="_blank" class="bg-gray-800 hover:bg-indigo-500/20 border border-gray-700 hover:border-indigo-500 text-gray-300 hover:text-white px-6 py-3 rounded-xl text-sm transition">
+            GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 py-6 text-center text-gray-600 text-sm">
+      © 2026 Ana Livia Souza de Freitas
+    </footer>
+
+  </body>
+</html>
