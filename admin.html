@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin — Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-950 text-white min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-900 border-b border-gray-800 px-6 py-4 flex justify-between items-center">
+      <span class="text-indigo-400 font-bold">Admin Panel</span>
+      <div class="flex gap-3">
+        <a href="portfolio.html" target="_blank" class="text-sm text-gray-400 hover:text-white transition">Ver portfolio →</a>
+        <button onclick="saveAll()" class="bg-indigo-500 hover:bg-indigo-600 text-white text-sm px-4 py-2 rounded-lg transition font-medium">
+          Salvar tudo
+        </button>
+      </div>
+    </nav>
+
+    <div class="max-w-3xl mx-auto px-6 py-10 flex flex-col gap-8">
+
+      <!-- Identidade -->
+      <section class="bg-gray-900 rounded-2xl p-6 border border-gray-800">
+        <h2 class="text-lg font-semibold mb-4 text-indigo-400">Identidade</h2>
+        <div class="flex flex-col gap-4">
+          <div>
+            <label class="text-sm text-gray-400 mb-1 block">Nome completo</label>
+            <input id="nome" type="text" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500" />
+          </div>
+          <div>
+            <label class="text-sm text-gray-400 mb-1 block">Cargo</label>
+            <input id="cargo" type="text" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500" />
+          </div>
+          <div>
+            <label class="text-sm text-gray-400 mb-1 block">Frase de apresentação</label>
+            <input id="frase" type="text" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Sobre mim -->
+      <section class="bg-gray-900 rounded-2xl p-6 border border-gray-800">
+        <h2 class="text-lg font-semibold mb-4 text-indigo-400">Sobre mim</h2>
+        <textarea id="sobre" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500 resize-none"></textarea>
+      </section>
+
+      <!-- Habilidades -->
+      <section class="bg-gray-900 rounded-2xl p-6 border border-gray-800">
+        <h2 class="text-lg font-semibold mb-4 text-indigo-400">Habilidades</h2>
+        <div id="habilidades-lista" class="flex flex-col gap-2 mb-4"></div>
+        <div class="flex gap-2">
+          <input id="nova-habilidade" type="text" placeholder="Nova habilidade..." class="flex-1 bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500" />
+          <button onclick="adicionarHabilidade()" class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm transition">
+            Adicionar
+          </button>
+        </div>
+      </section>
+
+      <!-- Projetos -->
+      <section class="bg-gray-900 rounded-2xl p-6 border border-gray-800">
+        <h2 class="text-lg font-semibold mb-4 text-indigo-400">Projetos</h2>
+        <div id="projetos-lista" class="flex flex-col gap-4 mb-4"></div>
+        <button onclick="adicionarProjeto()" class="w-full border border-dashed border-gray-600 hover:border-indigo-500 text-gray-500 hover:text-indigo-400 rounded-xl py-3 text-sm transition">
+          + Adicionar projeto
+        </button>
+      </section>
+
+      <!-- Contato -->
+      <section class="bg-gray-900 rounded-2xl p-6 border border-gray-800">
+        <h2 class="text-lg font-semibold mb-4 text-indigo-400">Contato</h2>
+        <div class="flex flex-col gap-4">
+          <div>
+            <label class="text-sm text-gray-400 mb-1 block">Email</label>
+            <input id="email" type="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500" />
+          </div>
+          <div>
+            <label class="text-sm text-gray-400 mb-1 block">Link do GitHub</label>
+            <input id="github" type="text" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Botão salvar -->
+      <button onclick="saveAll()" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3 rounded-xl transition">
+        Salvar tudo
+      </button>
+
+      <div id="toast" class="hidden fixed bottom-6 right-6 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg text-sm font-medium">
+        Salvo com sucesso!
+      </div>
+    </div>
+
+    <script>
+      const defaults = {
+        nome: "Ana Livia Souza de Freitas",
+        cargo: "Desenvolvedora Frontend",
+        frase: "Apaixonada por criar interfaces bonitas e funcionais com HTML, CSS e JavaScript.",
+        sobre: "Olá! Sou Ana Livia, desenvolvedora frontend em formação. Tenho interesse em construir experiências web acessíveis, responsivas e visualmente agradáveis. Estou sempre aprendendo novas tecnologias e buscando evoluir como profissional.",
+        habilidades: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Git & GitHub", "Responsividade"],
+        projetos: [{ nome: "Frontend Playground", descricao: "Repositório pessoal para praticar HTML e CSS.", link: "https://github.com/analiviasouza-hash/frontend-playground" }],
+        email: "analiviiasoouza@gmail.com",
+        github: "https://github.com/analiviasouza-hash"
+      };
+
+      function load() {
+        const data = JSON.parse(localStorage.getItem("portfolio") || "{}");
+        const d = { ...defaults, ...data };
+
+        document.getElementById("nome").value = d.nome;
+        document.getElementById("cargo").value = d.cargo;
+        document.getElementById("frase").value = d.frase;
+        document.getElementById("sobre").value = d.sobre;
+        document.getElementById("email").value = d.email;
+        document.getElementById("github").value = d.github;
+
+        renderHabilidades(d.habilidades);
+        renderProjetos(d.projetos);
+      }
+
+      function renderHabilidades(lista) {
+        const el = document.getElementById("habilidades-lista");
+        el.innerHTML = lista.map((h, i) => `
+          <div class="flex items-center gap-2 bg-gray-800 rounded-lg px-4 py-2">
+            <span class="flex-1 text-sm text-gray-300">${h}</span>
+            <button onclick="removerHabilidade(${i})" class="text-gray-600 hover:text-red-400 text-xs transition">✕</button>
+          </div>
+        `).join("");
+      }
+
+      function renderProjetos(lista) {
+        const el = document.getElementById("projetos-lista");
+        el.innerHTML = lista.map((p, i) => `
+          <div class="bg-gray-800 rounded-xl p-4 flex flex-col gap-2 border border-gray-700">
+            <div class="flex justify-between items-center">
+              <span class="text-xs text-gray-500 uppercase tracking-wide">Projeto ${i + 1}</span>
+              <button onclick="removerProjeto(${i})" class="text-gray-600 hover:text-red-400 text-xs transition">✕ Remover</button>
+            </div>
+            <input type="text" placeholder="Nome" value="${p.nome}" oninput="atualizarProjeto(${i}, 'nome', this.value)" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-indigo-500" />
+            <input type="text" placeholder="Descrição" value="${p.descricao}" oninput="atualizarProjeto(${i}, 'descricao', this.value)" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-indigo-500" />
+            <input type="text" placeholder="Link do GitHub" value="${p.link}" oninput="atualizarProjeto(${i}, 'link', this.value)" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-indigo-500" />
+          </div>
+        `).join("");
+      }
+
+      function getData() {
+        const data = JSON.parse(localStorage.getItem("portfolio") || "{}");
+        return { ...defaults, ...data };
+      }
+
+      function adicionarHabilidade() {
+        const input = document.getElementById("nova-habilidade");
+        const val = input.value.trim();
+        if (!val) return;
+        const d = getData();
+        d.habilidades.push(val);
+        localStorage.setItem("portfolio", JSON.stringify(d));
+        input.value = "";
+        renderHabilidades(d.habilidades);
+      }
+
+      function removerHabilidade(i) {
+        const d = getData();
+        d.habilidades.splice(i, 1);
+        localStorage.setItem("portfolio", JSON.stringify(d));
+        renderHabilidades(d.habilidades);
+      }
+
+      function adicionarProjeto() {
+        const d = getData();
+        d.projetos.push({ nome: "", descricao: "", link: "" });
+        localStorage.setItem("portfolio", JSON.stringify(d));
+        renderProjetos(d.projetos);
+      }
+
+      function removerProjeto(i) {
+        const d = getData();
+        d.projetos.splice(i, 1);
+        localStorage.setItem("portfolio", JSON.stringify(d));
+        renderProjetos(d.projetos);
+      }
+
+      function atualizarProjeto(i, campo, valor) {
+        const d = getData();
+        d.projetos[i][campo] = valor;
+        localStorage.setItem("portfolio", JSON.stringify(d));
+      }
+
+      function saveAll() {
+        const d = getData();
+        d.nome = document.getElementById("nome").value;
+        d.cargo = document.getElementById("cargo").value;
+        d.frase = document.getElementById("frase").value;
+        d.sobre = document.getElementById("sobre").value;
+        d.email = document.getElementById("email").value;
+        d.github = document.getElementById("github").value;
+        localStorage.setItem("portfolio", JSON.stringify(d));
+
+        const toast = document.getElementById("toast");
+        toast.classList.remove("hidden");
+        setTimeout(() => toast.classList.add("hidden"), 2500);
+      }
+
+      document.getElementById("nova-habilidade").addEventListener("keydown", e => {
+        if (e.key === "Enter") adicionarHabilidade();
+      });
+
+      load();
+    </script>
+  </body>
+</html>

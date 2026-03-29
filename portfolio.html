@@ -11,7 +11,7 @@
     <!-- Navbar -->
     <nav class="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm border-b border-gray-800 z-50">
       <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-        <span class="text-indigo-400 font-bold text-lg">Ana Livia</span>
+        <span id="nav-nome" class="text-indigo-400 font-bold text-lg">Ana Livia</span>
         <div class="flex gap-6 text-sm text-gray-400">
           <a href="#sobre" class="hover:text-white transition">Sobre</a>
           <a href="#habilidades" class="hover:text-white transition">Habilidades</a>
@@ -27,11 +27,9 @@
         <div class="w-24 h-24 rounded-full bg-indigo-500 flex items-center justify-center text-3xl font-bold mx-auto mb-6">
           AL
         </div>
-        <h1 class="text-4xl font-bold mb-2">Ana Livia Souza de Freitas</h1>
-        <p class="text-indigo-400 text-lg mb-4">Desenvolvedora Frontend</p>
-        <p class="text-gray-400 mb-8">
-          Apaixonada por criar interfaces bonitas e funcionais com HTML, CSS e JavaScript.
-        </p>
+        <h1 id="hero-nome" class="text-4xl font-bold mb-2"></h1>
+        <p id="hero-cargo" class="text-indigo-400 text-lg mb-4"></p>
+        <p id="hero-frase" class="text-gray-400 mb-8"></p>
         <div class="flex gap-4 justify-center">
           <a href="#projetos" class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-2 rounded-full text-sm font-medium transition">
             Ver projetos
@@ -47,11 +45,7 @@
     <section id="sobre" class="py-20 px-6 border-t border-gray-800">
       <div class="max-w-3xl mx-auto">
         <h2 class="text-2xl font-bold mb-6 text-indigo-400">Sobre mim</h2>
-        <p class="text-gray-300 leading-relaxed">
-          Olá! Sou Ana Livia, desenvolvedora frontend em formação. Tenho interesse em construir
-          experiências web acessíveis, responsivas e visualmente agradáveis. Estou sempre
-          aprendendo novas tecnologias e buscando evoluir como profissional.
-        </p>
+        <p id="sobre-texto" class="text-gray-300 leading-relaxed"></p>
       </div>
     </section>
 
@@ -59,14 +53,7 @@
     <section id="habilidades" class="py-20 px-6 border-t border-gray-800">
       <div class="max-w-3xl mx-auto">
         <h2 class="text-2xl font-bold mb-8 text-indigo-400">Habilidades</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          <div class="bg-gray-800 rounded-xl px-4 py-3 text-center text-sm text-gray-300 hover:bg-indigo-500/20 hover:text-white transition">HTML</div>
-          <div class="bg-gray-800 rounded-xl px-4 py-3 text-center text-sm text-gray-300 hover:bg-indigo-500/20 hover:text-white transition">CSS</div>
-          <div class="bg-gray-800 rounded-xl px-4 py-3 text-center text-sm text-gray-300 hover:bg-indigo-500/20 hover:text-white transition">JavaScript</div>
-          <div class="bg-gray-800 rounded-xl px-4 py-3 text-center text-sm text-gray-300 hover:bg-indigo-500/20 hover:text-white transition">Tailwind CSS</div>
-          <div class="bg-gray-800 rounded-xl px-4 py-3 text-center text-sm text-gray-300 hover:bg-indigo-500/20 hover:text-white transition">Git & GitHub</div>
-          <div class="bg-gray-800 rounded-xl px-4 py-3 text-center text-sm text-gray-300 hover:bg-indigo-500/20 hover:text-white transition">Responsividade</div>
-        </div>
+        <div id="habilidades-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-4"></div>
       </div>
     </section>
 
@@ -74,19 +61,7 @@
     <section id="projetos" class="py-20 px-6 border-t border-gray-800">
       <div class="max-w-3xl mx-auto">
         <h2 class="text-2xl font-bold mb-8 text-indigo-400">Projetos</h2>
-        <div class="grid sm:grid-cols-2 gap-6">
-          <div class="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition">
-            <h3 class="font-semibold text-white mb-2">Frontend Playground</h3>
-            <p class="text-gray-400 text-sm mb-4">Repositório pessoal para praticar HTML e CSS.</p>
-            <a href="https://github.com/analiviasouza-hash/frontend-playground" target="_blank" class="text-indigo-400 hover:text-indigo-300 text-sm transition">
-              Ver no GitHub →
-            </a>
-          </div>
-          <div class="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition border border-dashed border-gray-600">
-            <h3 class="font-semibold text-gray-500 mb-2">Em breve...</h3>
-            <p class="text-gray-600 text-sm">Novos projetos chegando.</p>
-          </div>
-        </div>
+        <div id="projetos-grid" class="grid sm:grid-cols-2 gap-6"></div>
       </div>
     </section>
 
@@ -95,21 +70,60 @@
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="text-2xl font-bold mb-4 text-indigo-400">Contato</h2>
         <p class="text-gray-400 mb-8">Quer conversar ou colaborar? Me chame!</p>
-        <div class="flex gap-4 justify-center flex-wrap">
-          <a href="mailto:analiviiasoouza@gmail.com" class="bg-gray-800 hover:bg-indigo-500/20 border border-gray-700 hover:border-indigo-500 text-gray-300 hover:text-white px-6 py-3 rounded-xl text-sm transition">
-            analiviiasoouza@gmail.com
-          </a>
-          <a href="https://github.com/analiviasouza-hash" target="_blank" class="bg-gray-800 hover:bg-indigo-500/20 border border-gray-700 hover:border-indigo-500 text-gray-300 hover:text-white px-6 py-3 rounded-xl text-sm transition">
-            GitHub
-          </a>
-        </div>
+        <div id="contato-links" class="flex gap-4 justify-center flex-wrap"></div>
       </div>
     </section>
 
     <!-- Footer -->
     <footer class="border-t border-gray-800 py-6 text-center text-gray-600 text-sm">
-      © 2026 Ana Livia Souza de Freitas
+      © 2026 <span id="footer-nome">Ana Livia Souza de Freitas</span>
     </footer>
 
+    <script>
+      const defaults = {
+        nome: "Ana Livia Souza de Freitas",
+        cargo: "Desenvolvedora Frontend",
+        frase: "Apaixonada por criar interfaces bonitas e funcionais com HTML, CSS e JavaScript.",
+        sobre: "Olá! Sou Ana Livia, desenvolvedora frontend em formação. Tenho interesse em construir experiências web acessíveis, responsivas e visualmente agradáveis. Estou sempre aprendendo novas tecnologias e buscando evoluir como profissional.",
+        habilidades: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Git & GitHub", "Responsividade"],
+        projetos: [{ nome: "Frontend Playground", descricao: "Repositório pessoal para praticar HTML e CSS.", link: "https://github.com/analiviasouza-hash/frontend-playground" }],
+        email: "analiviiasoouza@gmail.com",
+        github: "https://github.com/analiviasouza-hash"
+      };
+
+      const saved = JSON.parse(localStorage.getItem("portfolio") || "{}");
+      const d = { ...defaults, ...saved };
+
+      document.getElementById("nav-nome").textContent = d.nome.split(" ")[0] + " " + d.nome.split(" ")[1];
+      document.getElementById("hero-nome").textContent = d.nome;
+      document.getElementById("hero-cargo").textContent = d.cargo;
+      document.getElementById("hero-frase").textContent = d.frase;
+      document.getElementById("sobre-texto").textContent = d.sobre;
+      document.getElementById("footer-nome").textContent = d.nome;
+
+      const hGrid = document.getElementById("habilidades-grid");
+      hGrid.innerHTML = d.habilidades.map(h => `
+        <div class="bg-gray-800 rounded-xl px-4 py-3 text-center text-sm text-gray-300 hover:bg-indigo-500/20 hover:text-white transition">${h}</div>
+      `).join("");
+
+      const pGrid = document.getElementById("projetos-grid");
+      pGrid.innerHTML = d.projetos.map(p => `
+        <div class="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition">
+          <h3 class="font-semibold text-white mb-2">${p.nome}</h3>
+          <p class="text-gray-400 text-sm mb-4">${p.descricao}</p>
+          ${p.link ? `<a href="${p.link}" target="_blank" class="text-indigo-400 hover:text-indigo-300 text-sm transition">Ver no GitHub →</a>` : ""}
+        </div>
+      `).join("") + `
+        <div class="bg-gray-800 rounded-xl p-6 border border-dashed border-gray-600">
+          <h3 class="font-semibold text-gray-500 mb-2">Em breve...</h3>
+          <p class="text-gray-600 text-sm">Novos projetos chegando.</p>
+        </div>
+      `;
+
+      document.getElementById("contato-links").innerHTML = `
+        <a href="mailto:${d.email}" class="bg-gray-800 hover:bg-indigo-500/20 border border-gray-700 hover:border-indigo-500 text-gray-300 hover:text-white px-6 py-3 rounded-xl text-sm transition">${d.email}</a>
+        <a href="${d.github}" target="_blank" class="bg-gray-800 hover:bg-indigo-500/20 border border-gray-700 hover:border-indigo-500 text-gray-300 hover:text-white px-6 py-3 rounded-xl text-sm transition">GitHub</a>
+      `;
+    </script>
   </body>
 </html>
